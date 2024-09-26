@@ -1,5 +1,5 @@
 """
-ASGI config for webDizajnProekt project.
+ASGI config for web_dizajn_proekt project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'webDizajnProekt.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web_dizajn_proekt.settings')
 
 application = get_asgi_application()
