@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from users import views
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/',include("users.urls"))
+    path('users/',include("users.urls")),
+    path("home/",views.home,name="home"),
+    path("home/plants/<str:q>/<int:page>",views.getPlants,name="getPlants"),
+    path("home/plants/myGarden/",views.myGarden,name="myGarden"),
 ]

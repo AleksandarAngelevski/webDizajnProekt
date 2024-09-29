@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<h1>Hello World!</h1>
-<p>Welcome to my first Django project!</p>
-
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'css/home.css'%}">
+</head>
+<header>
+    <nav><div class="left-wrapper"><h1>Jardín</h1> <a>Home</a> <a>About Us</a></div><div class="middle-wrapper"></div><div class="right-wrapper">
+        <a href="{%url 'myGarden'%}">My Garden</a> <a href="{%url 'logOut'%}">Log Out</a>
+    </div></nav>
+</header>
+<div class="wrapper">
+    <div class="images">
+        {% load static %}
+        <img src="{% static 'images/picture1.svg'%}" alt="">
+        <img src="{% static 'images/picture2.svg'%}" alt="">
+        <img src="{% static 'images/picture3.svg'%}" alt="">
+    </div>
+</div>
 </body>
 </html>

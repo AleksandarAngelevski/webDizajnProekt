@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Hello World!</h1>
+<p>Welcome to my first Django project!</p>
+<form action="{% url 'register' %}" method="post">
+    {%csrf_token%}
+    {% if errors.username%}
+    <p>{{errors.username}}</p>
+    {%endif%}
+    {% if errors.password%}
+    <p>{{errors.password}}</p>
+    {%endif%}
+    {{form}}
+    <input type="submit" value="Register">
+</form>
+
+</body>
+</html>
