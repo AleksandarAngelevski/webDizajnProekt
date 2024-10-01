@@ -17,8 +17,8 @@ def getPlantsList(req,page_number=1):
      if req.user.is_authenticated:
           q=req.POST.get("search_query")
           results = getPlants(req,API_KEY,q,page_number)
-          context={"query_results":results,"query":q}
-          return render(req,"home.html",context)
+          context={"query_results":query,"query":quer}
+        return render(req,"home.html",context)
 
 def getPlants(req,api_key,quer,page_number=1):
         print(quer)
