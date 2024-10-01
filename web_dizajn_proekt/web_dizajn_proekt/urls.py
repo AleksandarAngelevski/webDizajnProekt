@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/',include("users.urls")),
     path("home/",views.home,name="home"),
-    path("home/plants/<str:q>/<int:page>",views.getPlants,name="getPlants"),
+    path("home/plants/",views.getPlantsList,name="getPlants"),
+    path("home/plants/<int:id>",views.getPlant,name="getPlant"),
     path("home/plants/myGarden/",views.myGarden,name="myGarden"),
+    path("about/",views.aboutUs,name="aboutUs"),
 ]

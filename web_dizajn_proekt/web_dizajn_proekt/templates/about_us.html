@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+    {% load static %}
+    
+    <link rel="stylesheet" href="{%static 'css/about_us.css'%}">
+    <link rel="stylesheet" href="{%static 'fontawesome/css/all.min.css'%}">
+</head>
+<header>
+    <nav><div class="left-wrapper"><h1>Jardín</h1> <a href="{%url 'home'%}" class="non-active">Home</a> <a href="{%url 'aboutUs'%}" class="active">About Us</a></div><div class="right-wrapper">
+        <a href="{%url 'myGarden'%}" class="button-primary">My Garden</a> <a href="{%url 'logOut'%}" class="button-secondary">Log Out</a>
+    </div></nav>
+</header>
+<div class="wrapper">
+    <div class="row1 row"><div class="text"><h1>Who Are We?</h1><p>Welcome to Jardín, your one-stop destination for all things plants! 🌿 Founded in 2022, Jardín was born from a passion for bringing the beauty and benefits of plants into every home and garden. We believe that connecting with nature shouldn’t be a luxury—it’s something everyone should be able to enjoy, regardless of space, time, or experience. Our mission is simple: help people cultivate thriving green spaces. Whether you're a seasoned plant enthusiast or just getting started, we offer tips, tools, and inspiration to make your gardening journey fun and fruitful.</p></div><img src="../static/images/about_us_image1.svg" alt=""></div>
+    <div class="row2 row"><img src="../static/images/about_us_image2.svg" alt=""><div class="text"><h1>Our Story</h1><p>It all began with a single houseplant and a love for nurturing life. After discovering how plants improve well-being, we set out on a mission to help others cultivate their green thumb. From our small startup, we’ve grown into a trusted resource for plant care and education. At Jardín, we’re not just about selling plants—we’re about growing connections. Together, we’re on a mission to make the world a little greener, one plant at a time. From the beginning, Jardín was about more than just plants—it was about creating a space where people could reconnect with nature in their daily lives. What started with a single houseplant soon blossomed into a full-scale movement, as we realized how much joy and peace greenery brings into our homes and communities.</p></div></div>
+</div>
+</body>
+</html>

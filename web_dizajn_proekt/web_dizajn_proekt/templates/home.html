@@ -3,26 +3,39 @@
 <body>
 <head>
     {% load static %}
+    
     <link rel="stylesheet" href="{%static 'css/home.css'%}">
-    <link rel="stylesheet" href="{%static 'fontawesome/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{%static 'fontawesome/css/all.min.css'%}">
 </head>
-<header>
-    <nav><div class="left-wrapper"><h1>Jardín</h1> <a>Home</a> <a>About Us</a></div><div class="middle-wrapper"></div><div class="right-wrapper">
-        <a href="{%url 'myGarden'%}">My Garden</a> <a href="{%url 'logOut'%}">Log Out</a>
+<header>    
+    <nav><div class="left-wrapper"><h1>Jardín</h1> <a href="{%url 'home'%}" class="active">Home</a> <a href="{%url 'aboutUs'%}" class="non-active">About Us</a></div><div class="middle-wrapper"><form action="{%url 'getPlants'%}" method="post">{% csrf_token %}<input name="search_query" type="text" class="searchField" placeholder="Search..."><button type="submt" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button></form></div><div class="right-wrapper">
+        <a href="{%url 'myGarden'%}" class="button-primary">My Garden</a> <a href="{%url 'logOut'%}" class="button-secondary">Log Out</a>
     </div></nav>
 </header>
 <div class="wrapper">
+    {%if query_results%}
+        {% for card in query_results.data %}
+        <a href="{%url 'getPlant' card.id%}" class="card-link">
+            <div class="card">
+                <div class="image-wrapper"><img src="{{card.default_image.regular_url}}" alt="" class="card-image"></div>
+                <p class="latin-name">{{card.scientific_name.0}}</p>
+                <h1>{{card.common_name}}</h1>
+            </div>  
+        </a>
+        {% endfor %}
+    {%else%}
     <div class="info">
         <h1>Embrace Nature with Expert Plant Care</h1>
         <p>Explore our comprehensive guides, expert tips, and valuable resources designed to help your plants flourish and thrive like never before</p>
-        <a href="">Find the Plant That Reflects Your True Self!</a>
+        <a href="">Find the Plant That Reflects Your True Self! <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     <div class="images">
         {% load static %}
-        <img src="{% static 'images/picture1.svg'%}" alt="">
-        <img src="{% static 'images/picture2.svg'%}" alt="">
-        <img src="{% static 'images/picture3.svg'%}" alt="">
+        <div class="overlay-container"><img src="{% static 'images/picture1.svg'%}" alt=""></div>
+        <div class="overlay-container"><img src="{% static 'images/picture2.svg'%}" alt=""></div>
+        <div class="overlay-container"><img src="{% static 'images/picture3.svg'%}" alt=""></div>
     </div>
+    {%endif%}
 </div>
 </body>
 </html>

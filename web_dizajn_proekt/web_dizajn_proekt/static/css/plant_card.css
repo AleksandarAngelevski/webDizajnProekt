@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: url("https://static.scientificamerican.com/sciam/cache/file/D1E779C2-5585-48B9-B5B8CA83481D212C_source.jpg?w=900");
+    align-items: center;
+}
+.card img{
+    max-height: 320px;
+    height: 100%;
+    max-width: 320px;
+    transition: .5s;
+    scale: 1.5;
+}
+.card h1{
+    text-align: center;
+    color: white;
+}
+.card p{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 90px;
+    background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 1rem .5rem;
+    text-align: center;
+    transition:.5s;
+    width:200px;
+}
+.card{
+    border-radius: 15px;
+    position: relative;
+    width: 320px;
+    border:2px solid black;
+    /* From https://css.glass */
+background: rgba(255, 255, 255, 0.18);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    -webkit-box-shadow: inset 0px 0px 79px 10px rgba(0,0,0,0.75);
+-moz-box-shadow: inset 0px 0px 79px 10px rgba(0,0,0,0.75);
+box-shadow: inset 0px 0px 79px 10px rgba(0,0,0,0.75);
+}
+.image-wrapper{
+    overflow: hidden;
+}
+.card:hover .card-image{
+    transition: .5s;
+    scale:1;
+}
+.card:hover .latin-name{
+    background: rgba( 255, 255, 255, 0.9 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+transition: .5s;
+}
