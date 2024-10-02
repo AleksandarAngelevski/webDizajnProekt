@@ -12,15 +12,16 @@ body{
     align-items: center;
 }
 .card img{
-    max-height: 320px;
+    max-height: 200px;
     height: 100%;
-    max-width: 320px;
+    max-width: 250px;
     transition: .5s;
-    scale: 1.5;
+    scale: 2;
 }
 .card h1{
     text-align: center;
     color: white;
+    font-size: 1.5rem;
 }
 .card p{
     position: absolute;
@@ -41,7 +42,7 @@ body{
 .card{
     border-radius: 15px;
     position: relative;
-    width: 320px;
+    width: 250px;
     border:2px solid black;
     /* From https://css.glass */
 background: rgba(255, 255, 255, 0.18);
@@ -60,7 +61,7 @@ box-shadow: inset 0px 0px 79px 10px rgba(0,0,0,0.75);
 }
 .card:hover .card-image{
     transition: .5s;
-    scale:1;
+    scale:1.5;
 }
 .card:hover .latin-name{
     background: rgba( 255, 255, 255, 0.9 );

@@ -182,17 +182,19 @@ box-shadow: 0px 0px 29px 1px rgba(255,255,255,0.46); */
 /*END OF SEARCH BAR STYLING*/
 /* END OF HEADER / NAVBAR STYLING */
 .wrapper{
-    padding: 3rem var(--main-padding-size) 0 var(--main-padding-size);
+    padding: 3rem var(--main-padding-size) 3rem var(--main-padding-size);
     display: flex;
     flex-direction: row;
     gap: 50px;
-    
-    
+    height: calc(100vh - 100px);
 }
 .wrapper .images{
     display: flex;
     flex-direction: column;
     gap:15px;
+}
+.overlay-container{
+    border-radius: 15px;
 }
 .wrapper .images img{
     border-radius: 15px;
@@ -220,7 +222,7 @@ box-shadow: 0px 0px 29px 1px rgba(255,255,255,0.46); */
 }
 .wrapper .info a{
     position: absolute;
-    bottom:110px;
+    bottom:20%;
     text-decoration: none;
     font-family:  "Poppins",sans-serif;
     font-weight:700;
@@ -279,23 +281,27 @@ box-shadow: 0px 0px 29px 1px rgba(255,255,255,0.46); */
 
 
 /* PLANT CARDS STYLING */
+
 .card img{
-    max-height: 320px;
+    max-height: 200px;
     height: 100%;
-    max-width: 320px;
+    max-width: 250px;
     transition: .5s;
-    scale: 1.5;
+    scale: 2;
 }
 .card h1{
     text-align: center;
     color: white;
     font-size: 1.5rem;
+    font-family: "Lora",serif;
+    font-weight: 600;
+
 }
 .card p{
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    bottom: 90px;
+    transform: translateX(-50%) translateY(-35%);
+    top: 35%;
     background: rgba( 255, 255, 255, 0.35 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
@@ -306,19 +312,22 @@ box-shadow: 0px 0px 29px 1px rgba(255,255,255,0.46); */
     text-align: center;
     transition:.5s;
     width:200px;
+    font-family: "Lora",serif;
+    font-weight: 400;
+    color:#1E1E1E
 }
 .card{
     border-radius: 15px;
     position: relative;
-    width: 320px;
+    width: 250px;
     border:2px solid black;
     /* From https://css.glass */
-background: rgba(255, 255, 255, 0.18);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     overflow: hidden;
     -webkit-box-shadow: inset 0px 0px 79px 10px rgba(0,0,0,0.75);
 -moz-box-shadow: inset 0px 0px 79px 10px rgba(0,0,0,0.75);
@@ -329,7 +338,7 @@ box-shadow: inset 0px 0px 79px 10px rgba(0,0,0,0.75);
 }
 .card:hover .card-image{
     transition: .5s;
-    scale:1;
+    scale:1.5;
 }
 .card:hover .latin-name{
     background: rgba( 255, 255, 255, 0.9 );
@@ -342,4 +351,21 @@ transition: .5s;
 }
 .card-link{
     text-decoration: none;
+    display: inline;
+}
+.plants-wrapper{
+    width: 100%;
+    height: 100%;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:1rem;
+    overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
+}
+.plants-wrapper .plant-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
 }

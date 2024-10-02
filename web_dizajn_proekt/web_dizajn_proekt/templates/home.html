@@ -8,21 +8,31 @@
     <link rel="stylesheet" href="{%static 'fontawesome/css/all.min.css'%}">
 </head>
 <header>    
-    <nav><div class="left-wrapper"><h1>Jardín</h1> <a href="{%url 'home'%}" class="active">Home</a> <a href="{%url 'aboutUs'%}" class="non-active">About Us</a></div><div class="middle-wrapper"><form action="{%url 'getPlants'%}" method="post">{% csrf_token %}<input name="search_query" type="text" class="searchField" placeholder="Search..."><button type="submt" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button></form></div><div class="right-wrapper">
+    <nav><div class="left-wrapper"><h1>Jardín</h1> <a href="{%url 'home'%}" class="active">Home</a> <a href="{%url 'aboutUs'%}" class="non-active">About Us</a></div><div class="middle-wrapper"><form action="{%url 'search'%}" method="post">{% csrf_token %}<input name="search_query" type="text" class="searchField" placeholder="Search..."><button type="submt" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button></form></div><div class="right-wrapper">
         <a href="{%url 'myGarden'%}" class="button-primary">My Garden</a> <a href="{%url 'logOut'%}" class="button-secondary">Log Out</a>
     </div></nav>
 </header>
 <div class="wrapper">
+    
     {%if query_results%}
+    <div class="plants-wrapper">
         {% for card in query_results.data %}
-        <a href="{%url 'getPlant' card.id%}" class="card-link">
-            <div class="card">
-                <div class="image-wrapper"><img src="{{card.default_image.regular_url}}" alt="" class="card-image"></div>
-                <p class="latin-name">{{card.scientific_name.0}}</p>
-                <h1>{{card.common_name}}</h1>
-            </div>  
-        </a>
+        <div class="plant-wrapper">
+            <a href="{%url 'getPlant' card.id%}" class="card-link">
+                <div class="card">
+                    <div class="image-wrapper"><img src="{{card.default_image.regular_url}}" alt="" class="card-image"></div>
+                    <p class="latin-name">{{card.scientific_name.0}}</p>
+                    <h1>{{card.common_name}}</h1>
+                </div>  
+            </a>
+        </div>
         {% endfor %}
+        <ul>
+        {%%}
+            <li><a href="#"></a></li>
+        {%endfor%}
+        </ul>
+    </div>
     {%else%}
     <div class="info">
         <h1>Embrace Nature with Expert Plant Care</h1>

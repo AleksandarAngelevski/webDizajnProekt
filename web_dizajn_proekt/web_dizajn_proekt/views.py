@@ -12,17 +12,20 @@ def home(req,query= None,quer=""):
         return render(req,"home.html",context)
     else:
         return HttpResponseRedirect("login")
-
-def getPlantsList(req,page_number=1):
-     if req.user.is_authenticated:
+def search(req):
+    if req.user.is_authenticated:
           q=req.POST.get("search_query")
-          results = getPlants(req,API_KEY,q,page_number)
-          context={"query_results":query,"query":quer}
-        return render(req,"home.html",context)
+          
+    return HttpResponseRedirect(reverse("getPlants",kwargs={"q":q,"page":1}))
+def getPlantsList(req,q,page=1,):
+    results = getPlants(API_KEY,q,page)
+    context={"query_results":results,"query":str(q)}
 
-def getPlants(req,api_key,quer,page_number=1):
+    return render(req,"home.html",context) 
+
+def getPlants(api_key,quer,page=1):
         print(quer)
-        result = requests.get("https://perenual.com/api/species-list",params={"key": api_key,"q":quer,})
+        result = requests.get("https://perenual.com/api/species-list",params={"key": api_key,"q":quer,"page":page,})
         if result.status_code == 200:
             print(result.json())
             result=result.json()

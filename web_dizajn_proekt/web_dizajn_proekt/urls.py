@@ -23,8 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/',include("users.urls")),
     path("home/",views.home,name="home"),
-    path("home/plants/",views.getPlantsList,name="getPlants"),
+    path("home/plants/list/<str:q>/<int:page>/",views.getPlantsList,name="getPlants"),
     path("home/plants/<int:id>",views.getPlant,name="getPlant"),
     path("home/plants/myGarden/",views.myGarden,name="myGarden"),
     path("about/",views.aboutUs,name="aboutUs"),
+    path("search/",views.search,name="search"),
 ]
