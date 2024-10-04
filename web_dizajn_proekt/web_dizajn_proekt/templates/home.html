@@ -15,6 +15,7 @@
 <div class="wrapper">
     
     {%if query_results%}
+    <div class="container">
     <div class="plants-wrapper">
         {% for card in query_results.data %}
         <div class="plant-wrapper">
@@ -27,11 +28,23 @@
             </a>
         </div>
         {% endfor %}
-        <ul>
-        {%%}
-            <li><a href="#"></a></li>
-        {%endfor%}
-        </ul>
+        <ul class="pages">
+            {%if current_page != 1%}
+                <li class="normal-page"><a href="{% url 'getPlants' query prev_page %}"><span>{{prev_page}}</span></a></li>
+            {%endif%}
+            {%for i in range%}
+            {%if i <= last_page%}
+                {%if i == current_page%}
+                <li class="active-page"><a href="{% url 'getPlants' query i %}"><span>{{i}}</span></a></li>
+                {%else%}
+                    <li class="normal-page"><a href="{% url 'getPlants' query i %}"><span>{{i}}</span></a></li>
+                {%endif%}
+            {%endif%}    
+            {%endfor%}
+            
+            </ul>
+    </div>
+        
     </div>
     {%else%}
     <div class="info">

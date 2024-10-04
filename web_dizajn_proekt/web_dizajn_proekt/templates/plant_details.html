@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+    {% load static %}
+    
+    <link rel="stylesheet" href="{%static 'css/details.css'%}">
+    <link rel="stylesheet" href="{%static 'fontawesome/css/all.min.css'%}">
+</head>
+<header>    
+    <nav><div class="left-wrapper"><h1>Jardín</h1> <a href="{%url 'home'%}" class="active">Home</a> <a href="{%url 'aboutUs'%}" class="non-active">About Us</a></div><div class="middle-wrapper"><form action="{%url 'search'%}" method="post">{% csrf_token %}<input name="search_query" type="text" class="searchField" placeholder="Search..."><button type="submt" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button></form></div><div class="right-wrapper">
+        <a href="{%url 'myGarden'%}" class="button-primary">My Garden</a> <a href="{%url 'logOut'%}" class="button-secondary">Log Out</a>
+    </div></nav>
+</header>
+<div class="wrapper">
+    <div class="row1"><div class="image-wrapper"><img src="" alt=""></div><div class="info"><h1>{{plant_guide.common_name}}</h1><p>{{plant_details.description}}</p></div></div>
+    <div class="row2"><div class="guide"></div></div>
+</div>
+<script type="text/javascript">
+    let variable = "{{plant_details.default_images.regular_url}}";
+    console.log(variable)
+    let body = document.body.style.background = `url(${variable})`
+</script>
+</body>
+</html>
