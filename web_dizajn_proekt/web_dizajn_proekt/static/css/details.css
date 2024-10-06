@@ -184,7 +184,8 @@ box-shadow: 0px 0px 29px 1px rgba(255,255,255,0.46); */
 
 .wrapper{
     position:relative;
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
+    height:100%;
 }
 .blur-wrapper{
     position: absolute;
@@ -206,7 +207,13 @@ box-shadow: 0px 0px 29px 1px rgba(255,255,255,0.46); */
 .wrapper .content-wrapper .row1{
     display: flex;
     flex-direction: row;
-
+    background: rgba( 255, 255, 255, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 1rem 1rem;
 }
 .wrapper .content-wrapper .row1 .img-wrapper{
     width: 50%;
@@ -218,9 +225,21 @@ box-shadow: 0px 0px 29px 1px rgba(255,255,255,0.46); */
 }
 .wrapper .content-wrapper .row1 .info{
     width: 50%;
+padding: 1rem;
+}
+.wrapper .content-wrapper .row1 .info h1{
+    margin: 1rem 0;
+    font-family: "Merriweather",serif;
+    font-size:2.5rem;
+}
+.wrapper .content-wrapper .row1 .info p{
+    font-family: "Poppins",sans-serif;
+    font-size: 1.1rem;
+    line-height: 2rem;
 }
 .image-wrapper{
-    position: relative;
+    text-align: center;
+
 }
 .wrapper .content-wrapper .row1 .image-wrapper img{
     height: auto;
@@ -228,4 +247,69 @@ box-shadow: 0px 0px 29px 1px rgba(255,255,255,0.46); */
     max-width: 100%;
     max-height: 500px;
 
+}
+.wrapper .content-wrapper .row2{
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: scroll;
+    padding: 1rem 2rem;
+}
+.row2 .guide-card{
+    background: rgba( 255, 255, 255, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 1rem 1rem;
+    width: 100%;
+    min-width: 600px;
+    margin: 0 2rem;
+    transition: .5s;
+    position: relative;
+}
+.row2 .guide-card-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ff0000;
+    top: 0;
+    left:0;
+    border-radius: 10px;
+    z-index: 99;
+    -webkit-mask: radial-gradient(
+    25rem 25rem at var(--x) var(--y),
+    #000 1%,
+    transparent 50%
+  );
+  mask: radial-gradient(
+    25rem 25rem at var(--x) var(--y),
+    #000 1%,
+    transparent 50%
+  ); 
+  /* OPACITY */
+  opacity: var(--opacity, 0);
+
+  /* smooooooth */
+  transition: 400ms mask ease;
+}
+.row2 .guide-card:hover{
+    background: rgba( 255, 255, 255, 0.7 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    transition: .5s;
+}
+.row2 .guide-card h1{
+    margin: 1rem 0;
+    font-family: "Merriweather",serif;
+}
+.row2 .guide-card p{
+    font-family: "Poppins",sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
 }

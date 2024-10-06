@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 import requests
-API_KEY = "sk-XYRt66e73d2fc02095961"
+API_KEY = "sk-dY9z6702bbfe323da7142" #Main profile api key sk-XYRt66e73d2fc02095961
+
 
 def home(req,query= None,quer=""):
     if req.user.is_authenticated:
@@ -32,7 +33,7 @@ def getPlants(api_key,quer,page=1):
             return result
         else :
             print(result.json())
-            return {"error":"API ERROR"}.json()
+            return {"error_api":"API ERROR"}
 def getPlant(req,id):
     
     plantGuide= getPlantGuide(API_KEY,id)
@@ -50,7 +51,7 @@ def getPlantDetails(api_key,plant_id):
             return result
         else :
             print(result.json())
-            return {"error":"API ERROR"}.json()
+            return {"error":"API ERROR"}
 def getPlantGuide(api_key,plant_id):
         result = requests.get("https://perenual.com/api/species-care-guide-list",params={"species_id":plant_id,"key":API_KEY})
         if result.status_code == 200:
@@ -58,7 +59,7 @@ def getPlantGuide(api_key,plant_id):
             return result.json()['data'][0]
         else :
             
-            return {"error":"API ERROR"}.json()
+            return {"error":"API ERROR"}
 def myGarden(req):
      pass
 def aboutUs(req):
