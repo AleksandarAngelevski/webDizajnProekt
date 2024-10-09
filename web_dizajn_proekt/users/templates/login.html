@@ -1,16 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <link rel="stylesheet" href="{%static 'fontawesome/css/all.min.css'%}">
+</head>
 <body>
+    <div class="blur"></div>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="{% url 'login' %}" method="post">
+            
+            {%if error%}
+            <div class="error-wrapper">{{error}}</div>
+            {%endif%}
+            {%csrf_token%}
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
 
-<h1>Hello World!</h1>
-<p>Welcome to my first Django project!</p>
-<form action="{% url 'login' %}" method="post">
-    {%csrf_token%}
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username"><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password"><br>
-    <input type="submit" value="login">
-</form>
+            <div class="psw-wrapper"><input type="password" id="password" name="password"><i class="fa-solid fa-eye show-eye"></i></div><br>
+            <button type="submit" value="Login" class="button-primary">Login</button>
+            <hr>
+        </form>
+        
+        <a href="{%url 'register'%}" id="registerLink">Register</a>
+
+    </div>
+    <script>
+        let eye = document.querySelector(".show-eye");
+        eye.addEventListener("click",(e)=>{
+            
+            let input = e.target.previousSibling;
+            if(input.getAttribute("type")=="password"){
+                input.setAttribute("type","text")
+                eye.classList.remove("fa-eye")
+                eye.classList.add("fa-eye-slash")
+            }else{
+                input.setAttribute("type","password")
+                eye.classList.remove("fa-eye-slash")
+                eye.classList.add("fa-eye")
+            }
+            
+        })
+    </script>
 </body>
 </html>

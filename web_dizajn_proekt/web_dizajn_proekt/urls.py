@@ -28,4 +28,5 @@ urlpatterns = [
     path("home/plants/myGarden/",views.myGarden,name="myGarden"),
     path("about/",views.aboutUs,name="aboutUs"),
     path("search/",views.search,name="search"),
+    path("favourite/<int:id>",views.addFavourite,name="favourite")
 ]

@@ -1,20 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/register.css'%}">
+    <link rel="stylesheet" href="{%static 'fontawesome/css/all.min.css'%}">
+</head>
 <body>
-
-<h1>Hello World!</h1>
-<p>Welcome to my first Django project!</p>
-<form action="{% url 'register' %}" method="post">
-    {%csrf_token%}
-    {% if errors.username%}
-    <p>{{errors.username}}</p>
-    {%endif%}
-    {% if errors.password%}
-    <p>{{errors.password}}</p>
-    {%endif%}
-    {{form}}
-    <input type="submit" value="Register">
-</form>
-
+    <div class="blur"></div>
+    <div class="container">
+        <h1>Register</h1>
+        <form action="{% url 'register' %}" method="post">
+            
+            {%csrf_token%}
+            {%if errors%}
+            <div class="error-wrapper">
+            {% if errors.username%}
+            {{errors.username}}<br>
+            {%endif%}
+            {% if errors.password%}
+            {{errors.password}}
+            {%endif%}
+                </div>
+                {%endif%}
+            {{form}}
+            <button type="" value="" class="button-primary" onsubmit="checkForm">Register</button>
+            <hr>
+        </form>
+        
+        <a href="{%url 'login'%}" id="loginLink">Login</a>
+    </div>
+    <script>
+        let iconTemplate =`<i class="fa-solid fa-eye show-eye"></i>`
+        let div1= document.createElement("div")
+        let input1 = document.querySelector("#id_password1")
+        div1.classList.add("psw1");
+        document.querySelector("#id_password1_helptext").insertAdjacentElement("afterend",div1)
+        div1.appendChild(input1);
+        div1.insertAdjacentHTML("beforeend",iconTemplate)
+        let div2= document.createElement("div")
+        let input2 = document.querySelector("#id_password2") 
+        div2.classList.add("psw2");
+        document.querySelector("#id_password2_helptext").insertAdjacentElement("afterend",div2)
+        div2.appendChild(input2);
+        div2.insertAdjacentHTML("beforeend",iconTemplate)
+        // PASSWORD FIELDS VISIBILITY 
+        let eye = document.querySelectorAll(".show-eye");
+        eye.forEach((e1)=>{
+            e1.addEventListener("click",(e)=>{
+            let input = e.target.previousSibling;
+            if(input.getAttribute("type")=="password"){
+                input.setAttribute("type","text")
+                e1.classList.remove("fa-eye")
+                e1.classList.add("fa-eye-slash")
+            }else{
+                input.setAttribute("type","password")
+                e1.classList.remove("fa-eye-slash")
+                e1.classList.add("fa-eye")
+            }
+            
+        })
+        })
+        function checkForm(e){
+            if(document.querySelector("#id_password1").value != document.querySelector("#id_password2")){
+                alert("Passwords don't match")
+                return false
+            }else if(document.querySelector("#id_username").value.trim()  != ""){
+                alert("Username field empty")
+                return false;
+            }
+            return true;
+        }
+        let submit_button = document.querySelector(".button-primary");
+    </script>
 </body>
 </html>

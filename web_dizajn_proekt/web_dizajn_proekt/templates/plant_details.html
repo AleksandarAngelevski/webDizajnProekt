@@ -17,55 +17,26 @@
     <div class="blur-wrapper">
     </div>
     <div class="content-wrapper">
-        <div class="row1"><div class="img-wrapper"><div class="image-wrapper"><img src="{{plant_details.default_image.original_url}}" alt=""></div></div><div class="info"><h1>{{plant_guide.common_name}}</h1><p>{{plant_details.description}}</p></div></div>
-        <div class="row2">{%for guide in plant_guide.section %}<div class="guide-card" id="{{guide.type}}"><div class="guide-card-overlay"><h1>{{guide.type}}</h1><p>{{guide.description}}</p></div><h1>{{guide.type}}</h1><p>{{guide.description}}</p></div>{%endfor%}</div>
+      {%if error_api %}
+        <div class="row1">
+          <h1>Error in our API</h1>
+        </div>
+      {%else%}
+        <div class="row1"><div class="img-wrapper"><div class="image-wrapper"><img src="{{plant_details.default_image.original_url}}" alt=""></div></div><div class="info"><h1>{{plant_guide.common_name}}
+          
+          {%if is_favourite %}
+          <a href="{% url 'favourite' plant_details.id %}"><i class="fa-solid fa-heart favourited" ></i></a>{%else%}
+          <a href="{% url 'favourite' plant_details.id %}"><i class="fa-solid fa-heart not-favourited" ></i></a>
+          {%endif%}
+        </form>
+        </h1><p>{{plant_details.description}}</p></div></div>
+        <div class="row2">{%for guide in plant_guide.section %}<div class="guide-card" id="{{guide.type}}"><div class="guide-card-overlay"><h1>{{guide.type}}</h1><p>{{guide.description}}</p></div></div> {%endfor%}</div>
+      {%endif%}
     </div>
 </div>
 
 <script type="text/javascript">
-const main = document.querySelector(".row2");
-const overlay = document.querySelector(".overlay");
-
-const applyOverlayMask = (e) => {
-  if(e.target == document.querySelector(".guide-card-overlay")){
-    console.log("!!");
-    
-    const overlayEl = document.querySelector(".guide-card-overlay");
-  const x = e.target.pageX - main.offsetLeft;
-  const y = e.target.pageY - main.offsetTop;
-    overlayEl.style = `--opacity: 1; --x: ${x}px; --y:${y}px;`;
-  }
-  
-};
-
-document.body.addEventListener("pointermove", applyOverlayMask);
-//    const applyOverlayMask = (e) => {
-  
-//   let temp=isChildOf(e.target);
-//   if(temp){
-
-//     let tempEl = document.getElementById(temp)
-//     const x = tempEl.pageX ;
-//     const y = tempEl.pageY ;
-//     for (const child of tempEl.children) {
-//         if(child.classList.contains("guide-card-overlay")){
-//             child.style = `--opacity: 1; --x: ${x}px; --y:${y}px;`;    
-//         }
-// }
-//   }
-  
-// };
-// function isChildOf(element){
-//     if(element.parentElement == document.body){
-//         return null;
-//     }else if(element.parentElement.classList.contains("guide-card")){
-//         console.log("true");
-//         return element.parentElement.getAttribute("id");
-//     }else{
-//         return isChildOf(element.parentElement);
-//     }
-// }
-// document.body.addEventListener("pointermove", applyOverlayMask);
+ 
 </script>
 </body>
 </html>

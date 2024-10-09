@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
     'django_static_fontawesome',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "users",
     "web_dizajn_proekt",
+    "users",
+    
 ]
 
 MIDDLEWARE = [

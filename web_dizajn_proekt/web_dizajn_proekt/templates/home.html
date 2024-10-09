@@ -28,6 +28,7 @@
             </a>
         </div>
         {% endfor %}
+        {% if query_results%}
         <ul class="pages">
             {%if current_page != 1%}
                 <li class="normal-page"><a href="{% url 'getPlants' query prev_page %}"><span>{{prev_page}}</span></a></li>
@@ -43,8 +44,13 @@
             {%endfor%}
             
             </ul>
+        {%endif%}
     </div>
         
+    </div>
+    {%elif error_api%}
+    <div class="info">
+        <h1>We have an error in our api</h1>
     </div>
     {%else%}
     <div class="info">
