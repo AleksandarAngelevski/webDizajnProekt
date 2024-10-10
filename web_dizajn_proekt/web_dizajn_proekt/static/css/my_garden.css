@@ -21,6 +21,7 @@ body{
     background-repeat: no-repeat;
     
 }
+
 /* Header / navbar styling */
 header{
     height: 100px;
@@ -100,26 +101,17 @@ header nav .right-wrapper{
     width: 125px;
     border: 2px #228B22 solid;
     border-radius: 25px;
-    color: #FFFFFF;
+    color: #228B22;
     text-decoration: none;
     text-align: center;
     padding: .5rem .5rem;
     font-family: "Poppins",sans-serif;
-    transition: .5s;
-    background-color: #228B22;
-
+    transition: .2s;
 }   
 .button-primary:hover{
-    background-color: #2cb22c;
-    border: 2px #2cb22c solid;
-
-  
--webkit-box-shadow:0px 0px 96px 0px rgba(44,178,44,0.89);
--moz-box-shadow: 0px 0px 96px 0px rgba(44,178,44,0.89);
-box-shadow: 0px 0px 96px 0px rgba(44,178,44,0.89);
-
-    transition: .5s;
-    
+    background-color: #228B22;
+    transition: .2s;
+    color: #FFFFFF;
 }
 .button-secondary{
     width: 125px;
@@ -148,14 +140,17 @@ box-shadow: 0px 0px 29px 1px rgba(255,255,255,0.46); */
 }
 
 .middle-wrapper form{
-    background: #FFFFFF;
-    border-radius: 50%;
+    /* background: url("../images/input_bg.jpg"); */
+    background-color: #FFFFFF;
+    background-position: center;
+    background-size: cover;
     padding: .5rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
     width: 40px;
+    height: 40px;
+    border-radius: 25px;
     transition: .5s;
 }
 /* SEARCH BAR STYLING*/
@@ -170,8 +165,15 @@ box-shadow: 0px 0px 29px 1px rgba(255,255,255,0.46); */
 
 .middle-wrapper input:focus{
     outline:none;
+    transform: .5s;
+    
+}
+.middle-wrapper form input{
+    transition: .5s;
+
 }
 .middle-wrapper form:hover .searchField{
+    display: inline;
     width: 100%;
     transition: .5s;
 }

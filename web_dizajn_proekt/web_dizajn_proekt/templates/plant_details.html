@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{%static 'fontawesome/css/all.min.css'%}">
 </head>
 <header>    
-    <nav><div class="left-wrapper"><h1>Jardín</h1> <a href="{%url 'home'%}" class="non-active">Home</a> <a href="{%url 'aboutUs'%}" class="non-active">About Us</a></div><div class="middle-wrapper"><form action="{%url 'search'%}" method="post">{% csrf_token %}<input name="search_query" type="text" class="searchField" placeholder="Search..."><button type="submt" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button></form></div><div class="right-wrapper">
+    <nav><div class="left-wrapper"><a href="{% url 'home'%}"><h1>Jardín</h1></a> <a href="{%url 'home'%}" class="non-active">Home</a> <a href="{%url 'aboutUs'%}" class="non-active">About Us</a></div><div class="middle-wrapper"><form action="{%url 'search'%}" method="post">{% csrf_token %}<input name="search_query" type="text" class="searchField" placeholder="Search..."><button type="submt" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button></form></div><div class="right-wrapper">
         <a href="{%url 'myGarden'%}" class="button-primary">My Garden</a> <a href="{%url 'logOut'%}" class="button-secondary">Log Out</a>
     </div></nav>
 </header>

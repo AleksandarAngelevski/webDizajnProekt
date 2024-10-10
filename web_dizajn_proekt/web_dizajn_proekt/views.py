@@ -7,7 +7,8 @@ import requests
 API_KEY = "sk-XYRt66e73d2fc02095961" #Main profile api key sk-XYRt66e73d2fc02095961
 # BACKUP API KEY sk-dY9z6702bbfe323da7142
 
-
+def homeRedirect(req):
+    return HttpResponseRedirect(reverse("home"))
 def home(req,query= None,quer=""):
     if req.user.is_authenticated:
         context={}

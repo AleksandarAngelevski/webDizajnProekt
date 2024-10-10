@@ -20,6 +20,7 @@ from users import views
 from . import views
 
 urlpatterns = [
+    path("",views.homeRedirect,name="homeRedirect"),
     path('admin/', admin.site.urls),
     path('users/',include("users.urls")),
     path("home/",views.home,name="home"),

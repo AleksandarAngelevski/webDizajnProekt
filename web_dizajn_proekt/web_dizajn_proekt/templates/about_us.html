@@ -6,9 +6,33 @@
     
     <link rel="stylesheet" href="{%static 'css/about_us.css'%}">
     <link rel="stylesheet" href="{%static 'fontawesome/css/all.min.css'%}">
+    <script>
+        document.onreadystatechange = function() {
+            if (document.readyState !== "complete") {
+                document.querySelector("body").style.visibility = "hidden";
+                
+            } else {
+    
+                document.querySelector("body").style.visibility = "visible";
+            }
+        };
+        function func(){
+            if (document.activeElement == document.querySelector(".searchField")){
+                document.querySelector("#searchForm").style.width="100%";
+                document.querySelector(".searchField").style.width="100%";
+            }else{
+                document.querySelector("#searchForm").style.width="40px";
+                document.querySelector(".searchField").style.width="0%";
+            }
+        }
+        function changeWidth(){
+            document.querySelector("#searchForm").style.width="100%";
+            document.querySelector(".searchField").style.width="100%";
+        }
+    </script>
 </head>
 <header>
-    <nav><div class="left-wrapper"><h1>Jardín</h1> <a href="{%url 'home'%}" class="non-active">Home</a> <a href="{%url 'aboutUs'%}" class="active">About Us</a></div><div class="right-wrapper">
+    <nav><div class="left-wrapper"><a href="{%url 'home'%}"><h1>Jardín</h1><a/> <a href="{%url 'home'%}" class="active">Home</a> <a href="{%url 'aboutUs'%}" class="non-active">About Us</a></div><div class="middle-wrapper"><form onmouseover="changeWidth()" id="searchForm" action="{%url 'search'%}" method="post">{% csrf_token %}<input onfocus="func()" onfocusout="func()" name="search_query" type="text" class="searchField" placeholder="Search..."><button type="submt" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button></form></div><div class="right-wrapper">
         <a href="{%url 'myGarden'%}" class="button-primary">My Garden</a> <a href="{%url 'logOut'%}" class="button-secondary">Log Out</a>
     </div></nav>
 </header>
