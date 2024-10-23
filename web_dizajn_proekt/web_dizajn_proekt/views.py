@@ -4,8 +4,7 @@ from django.contrib.auth.models import User
 from .models import Favourite
 from django.urls import reverse
 import requests
-API_KEY = "sk-XYRt66e73d2fc02095961" #Main profile api key sk-XYRt66e73d2fc02095961
-# BACKUP API KEY sk-dY9z6702bbfe323da7142
+API_KEY = ""
 
 def homeRedirect(req):
     return HttpResponseRedirect(reverse("home"))
